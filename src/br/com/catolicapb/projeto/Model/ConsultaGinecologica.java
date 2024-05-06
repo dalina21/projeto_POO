@@ -28,14 +28,13 @@ public class ConsultaGinecologica extends Consulta{
 
     public double calcularValorDaConsulta(){
         double valorDsconto = 0;
-
-        this.valorDaConsulta += this.procedimento.valor;
+        double valorTotal = this.medicoResponsavel.valorConsulta + this.procedimento.valor;
 
         if (this.paciente.possuiCartaoVIP){
-            valorDsconto = this.valorDaConsulta * 0.15;
+            valorDsconto = valorTotal * 0.15;
         }
 
-        return this.valorDaConsulta - valorDsconto;
+        return valorTotal - valorDsconto;
 
     }
 
@@ -45,7 +44,7 @@ public class ConsultaGinecologica extends Consulta{
                 "\nProcedimento a ser realizado: " + this.procedimento +
                 "\nMédico(a) responsável: " + this.medicoResponsavel.nome +
                 "\nCrm do médico(a): " + this.medicoResponsavel.crm +
-                "\n\n=> Valor da consulta: " + this.valorDaConsulta +
+                "\n\n=> Valor da consulta: " + calcularValorDaConsulta() +
                 "\nStatus da consulta: " + this.statusDaConsulta;
     }
 

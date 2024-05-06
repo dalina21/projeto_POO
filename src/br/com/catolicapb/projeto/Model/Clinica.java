@@ -22,7 +22,7 @@ public class Clinica implements IFinanceiro, ISistema {
         this.nomeDaClinica = nomeDaClinica;
         this.endereco = endereco;
         this.medicosDermatologistasCadastrados = new MedicoDermatologista[8];
-        this.medicosGinecologistasCadastrados = new MedicoGinecologista[6];
+        this.medicosGinecologistasCadastrados = new MedicoGinecologista[8];
         this.pacientesCadastradosDermato = new PacienteDermatologico[500];
         this.pacientesCadastradosGineco = new PacienteGinecologico[500];
     }
@@ -164,7 +164,7 @@ public class Clinica implements IFinanceiro, ISistema {
     public MedicoGinecologista pesquisarMedicoGinecoNoSistema(String crm){
         MedicoGinecologista medico = null;
 
-        for (int i = 0; i < this.medicosDermatologistasCadastrados.length; i++){
+        for (int i = 0; i < this.medicosGinecologistasCadastrados.length; i++){
             if (this.medicosGinecologistasCadastrados[i] != null && this.medicosGinecologistasCadastrados[i].crm.equals(crm)){
                 medico = this.medicosGinecologistasCadastrados[i];
                 break;

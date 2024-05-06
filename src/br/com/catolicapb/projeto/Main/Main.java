@@ -263,6 +263,7 @@ public class Main {
                                                                 System.out.println("Data não aceita!");
                                                                 continue;
                                                             }
+                                                            break;
 
                                                         case 3:
                                                             System.out.println("\n\tRealizar consultas\n");
@@ -280,6 +281,7 @@ public class Main {
                                                                         "Verifique se o paciente está cadastrado no sistema ou se  a consulta está marcada para a data de hoje!");
                                                                 continue;
                                                             }
+                                                            break;
                                                         case 4:
                                                             System.out.println("\n=>Informe o CPF do paciente referente a consulta: ");
                                                             String cpfRemover = scanner.next();
@@ -298,12 +300,15 @@ public class Main {
                                                                 System.out.println("Paciente não encontrado!");
                                                                 continue;
                                                             }
+                                                            break;
                                                         case 5:
                                                             System.out.println("\nGerar Relatório do dia!");
                                                             clinica.gerarRelatorioDoDiaDermato(medico);
+                                                            break;
                                                         case 6:
                                                             System.out.println("\n\tVizualizar todas as consultas do Mês\n");
                                                             medico.mostrarConsultas();
+                                                            break;
                                                         default:
                                                             System.out.println("\nResposta Inválida!");
                                                             continue;
@@ -342,6 +347,7 @@ public class Main {
                                                         case 1:
                                                             System.out.println("\n\tVizualizar Consultas do dia");
                                                             medico2.mostrarConsultasDoDia();
+                                                            break;
                                                         case 2:
                                                             System.out.println("\n\tPreencher Datas");
                                                             System.out.println("Informe a data: ");
@@ -380,6 +386,7 @@ public class Main {
                                                                 System.out.println("Data não aceita!");
                                                                 continue;
                                                             }
+                                                            break;
 
                                                         case 3:
                                                             System.out.println("\n\tRealizar consultas\n");
@@ -398,6 +405,7 @@ public class Main {
                                                                         "Verifique se o paciente está cadastrado no sistema ou se  a consulta está marcada para a data de hoje!");
                                                                 continue;
                                                             }
+                                                            break;
 
                                                         case 4:
                                                             System.out.println("\n=>Informe o CPF do paciente referente a consulta: ");
@@ -417,14 +425,17 @@ public class Main {
                                                                 System.out.println("Paciente não encontrado!");
                                                                 continue;
                                                             }
+                                                            break;
 
                                                         case 5:
                                                             System.out.println("\nGerar Relatório do dia!");
                                                             clinica.gerarRelatorioDoDiaGineco(medico2);
+                                                            break;
 
                                                         case 6:
                                                             System.out.println("\t\nVizualizar todas as consultas do mês\n");
                                                             medico2.mostrarConsultas();
+                                                            break;
 
                                                         default:
                                                             System.out.println("\nResposta Inválida!");
