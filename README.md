@@ -3,9 +3,21 @@
 
  ## Principais Funcionalidades
  => Cadastrar Médico
+
+ 
  => Cadastrar Paciente
+
+ 
  => Disponibilidade de médicos Dermatologistas e Ginecologistas
+
+ 
  => Agendar Consulta
+
+ 
  => Remarcar Consulta
+
+ 
  => Cancelar Consulta
+
+ 
  => Dispoe de alguns procedimentos tanto Dermatologicos qaunto Ginecologicos
