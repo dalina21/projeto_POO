@@ -21,7 +21,7 @@
  => Cancelar Consulta
 
  
- => Dispoe de alguns procedimentos tanto Dermatologicos qaunto Ginecologicos
+ => Dispoe de alguns procedimentos tanto Dermatologicos quanto Ginecologicos
  
 
  ## Como Funciona
