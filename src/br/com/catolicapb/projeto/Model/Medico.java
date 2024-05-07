@@ -122,7 +122,7 @@ abstract public class Medico extends Pessoa {
 
         for (int i = 0; i < this.datasDisponiveis.length; i++){
             if (this.datasDisponiveis[i] != null && this.datasDisponiveis[i].toLocalDate().equals(data)){
-                System.out.printf("\n%s:%s\n", this.datasDisponiveis[i].getHour(), this.datasDisponiveis[i].getMinute());
+                System.out.printf("\n%s- %s:%s\n",i, this.datasDisponiveis[i].getHour(), this.datasDisponiveis[i].getMinute());
             }
         }
 
@@ -131,7 +131,7 @@ abstract public class Medico extends Pessoa {
     public void vizualizarDatasDisponiveis(){
         for (int i = 0; i < this.datasDisponiveis.length; i++){
             if (this.datasDisponiveis[i] != null){
-                System.out.printf("\n%s\n", this.datasDisponiveis[i].toLocalDate());
+                System.out.printf("\n%s- %s\n",i, this.datasDisponiveis[i].toLocalDate());
             }
         }
     }

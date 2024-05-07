@@ -641,26 +641,20 @@ public class Main {
                                                             case 1:
                                                                 System.out.println("=> Datas disponíveis: ");
                                                                 medicoGineco.vizualizarDatasDisponiveis();
-                                                                System.out.print("\nInforme a data escolhida: " +
-                                                                        "\nDia: ");
-                                                                int dia2 = scanner.nextInt();
-                                                                System.out.print("\nMês: ");
-                                                                int mes2 = scanner.nextInt();
-                                                                System.out.print("\nAno: ");
-                                                                int ano2 = scanner.nextInt();
+                                                                System.out.print("\nInforme a data escolhida: ");
+                                                                int dataEscolhida = scanner.nextInt();
+                                                                LocalDateTime data = medicoGineco.datasDisponiveis[dataEscolhida];
 
-                                                                boolean verificarDta = medicoGineco.verificarDta(LocalDate.of(ano2, mes2, dia2));
+                                                                boolean verificarDta = medicoGineco.verificarDta(data.toLocalDate());
 
                                                                 if (verificarDta){
                                                                     System.out.println("=> Horários dispiníveis para essa data: ");
-                                                                    medicoGineco.vizualizarHorariosDisponiveis(LocalDate.of(ano2, mes2, dia2));
+                                                                    medicoGineco.vizualizarHorariosDisponiveis(data.toLocalDate());
                                                                     System.out.println("Informe o horário escolhido: ");
-                                                                    System.out.print("Hora: ");
-                                                                    int hora2 = scanner.nextInt();
-                                                                    System.out.print("Minuto: ");
-                                                                    int minuto2 = scanner.nextInt();
+                                                                    int horarioEscolhido = scanner.nextInt();
+                                                                    LocalDateTime hora = medicoGineco.datasDisponiveis[horarioEscolhido];
 
-                                                                    boolean verificarHora2 = medicoGineco.verificarHora(LocalTime.of(hora2, minuto2));
+                                                                    boolean verificarHora2 = medicoGineco.verificarHora(hora.toLocalTime());
 
                                                                     if (verificarHora2){
                                                                         System.out.println("=> Informe qual dos procedimentos abaixo será realizado:\n\n" +
@@ -701,10 +695,10 @@ public class Main {
                                                                                 continue;
                                                                         }
 
-                                                                        ConsultaGinecologica consulta = new ConsultaGinecologica(LocalDateTime.of(ano2, mes2, dia2, hora2, minuto2), EnumStatusConsulta.AGENDADA, medicoGineco, procedimentoEscolhido, pacienteGineco);
+                                                                        ConsultaGinecologica consulta = new ConsultaGinecologica(data, EnumStatusConsulta.AGENDADA, medicoGineco, procedimentoEscolhido, pacienteGineco);
                                                                         boolean concluido2 = medicoGineco.adicionarConsulta(consulta);
                                                                         if(concluido2){
-                                                                            medicoGineco.removerDatasDisponiveis(LocalDateTime.of(ano2, mes2, dia2, hora2, minuto2));
+                                                                            medicoGineco.removerDatasDisponiveis(data);
                                                                             System.out.println(consulta);
                                                                             System.out.println("Consulta agendada com sucesso!");
                                                                         } else {
@@ -741,6 +735,7 @@ public class Main {
                                                 System.out.println("Informação Inválida!");
                                                 continue;
                                         }
+                                        break;
                                     case 2: //Remarcar consulta
                                         System.out.print("\n\tRemarcar Consulta\n" +
                                                 "Informe a especialidade:\n" +
@@ -842,6 +837,7 @@ public class Main {
                                                 System.out.println("Informação Inválida!");
                                                 continue;
                                         }
+                                        break;
                                     case 3: //Cancelar consulta
                                         System.out.print("\n\tCancelar Consulta\n" +
                                                 "Informe a especialidade:\n" +
@@ -881,6 +877,7 @@ public class Main {
                                                 System.out.println("Informação Inválida!");
                                                 continue;
                                         }
+                                        break;
                                     default:
                                         System.out.println("Informação Inválida!");
                                         continue;

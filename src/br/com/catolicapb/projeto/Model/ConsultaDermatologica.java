@@ -27,14 +27,13 @@ public class ConsultaDermatologica extends Consulta {
 
     public double calcularValorDaConsulta(){
         double valorDsconto = 0;
-
-        this.valorDaConsulta += this.procedimento.valor;
+        double valorTotal = this.medicoResponsavel.valorConsulta + this.procedimento.valor;
 
         if (this.paciente.possuiCartaoVIP){
-            valorDsconto = this.valorDaConsulta * 0.15;
+            valorDsconto = valorTotal * 0.15;
         }
 
-        return this.valorDaConsulta - valorDsconto;
+        return valorTotal - valorDsconto;
 
     }
 
