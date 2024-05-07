@@ -594,10 +594,10 @@ public class Main {
                                                                 }
                                                                 break;
                                                             case 2:
-                                                                System.out.println("Agendamento cancelado!");
+                                                                System.out.println("\nAgendamento cancelado!");
                                                                 break;
                                                             default:
-                                                                System.out.println("Informação Inválida!");
+                                                                System.out.println("\nInformação Inválida!");
                                                                 continue;
                                                         }
                                                     } else {
