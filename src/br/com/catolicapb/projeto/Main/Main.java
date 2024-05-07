@@ -207,7 +207,7 @@ public class Main {
                                             boolean login = medico.fazerLogin(crmLogin, senhaLogin);
                                             if(login){
                                                 while (true){
-                                                    System.out.println("\n=> Escolha uma das opções abaixo:" +
+                                                    System.out.println("\n=> Escolha uma das opções abaixo:\n" +
                                                             "\n1- VIZUALIZAR CONSULTAS DO DIA" +
                                                             "\n2- PREENCHER DATAS" +
                                                             "\n3- REALIZAR CONSULTAS" +
