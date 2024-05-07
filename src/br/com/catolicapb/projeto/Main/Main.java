@@ -519,26 +519,20 @@ public class Main {
                                                             case 1:
                                                                 System.out.println("=> Datas disponíveis: ");
                                                                 medicoDermato.vizualizarDatasDisponiveis();
-                                                                System.out.print("\nInforme a data escolhida: " +
-                                                                        "\nDia: ");
-                                                                int dia = scanner.nextInt();
-                                                                System.out.print("\nMês: ");
-                                                                int mes = scanner.nextInt();
-                                                                System.out.print("\nAno: ");
-                                                                int ano = scanner.nextInt();
+                                                                System.out.print("\nInforme a data escolhida: ");
+                                                                int data = scanner.nextInt();
+                                                                LocalDateTime dataEscolhida = medicoDermato.datasDisponiveis[data];
 
-                                                                boolean concluidoVerificar = medicoDermato.verificarDta(LocalDate.of(ano, mes, dia));
+                                                                boolean concluidoVerificar = medicoDermato.verificarDta(dataEscolhida.toLocalDate());
                                                                 if (concluidoVerificar){
                                                                     System.out.println("=> Horários dispiníveis para essa data: ");
-                                                                    medicoDermato.vizualizarHorariosDisponiveis(LocalDate.of(ano, mes, dia));
+                                                                    medicoDermato.vizualizarHorariosDisponiveis(dataEscolhida.toLocalDate());
 
                                                                     System.out.println("Informe o horário escolhido: ");
-                                                                    System.out.print("Hora: ");
                                                                     int hora = scanner.nextInt();
-                                                                    System.out.print("Minuto: ");
-                                                                    int minuto = scanner.nextInt();
+                                                                    LocalDateTime horaEscolhida = medicoDermato.datasDisponiveis[hora];
 
-                                                                    boolean verificarHora = medicoDermato.verificarHora(LocalTime.of(hora, minuto));
+                                                                    boolean verificarHora = medicoDermato.verificarHora(horaEscolhida.toLocalTime());
                                                                     if (verificarHora){
                                                                         System.out.println("=> Informe qual dos procedimentos abaixo será realizado:\n\n" +
                                                                                 "1- ACTINOTERAPIA\n" +
@@ -578,10 +572,10 @@ public class Main {
                                                                                 continue;
                                                                         }
 
-                                                                        ConsultaDermatologica consulta = new ConsultaDermatologica(LocalDateTime.of(ano, mes, dia, hora, minuto), EnumStatusConsulta.AGENDADA, medicoDermato, procedimentoEscolhido, pacienteDermato);
+                                                                        ConsultaDermatologica consulta = new ConsultaDermatologica(dataEscolhida, EnumStatusConsulta.AGENDADA, medicoDermato, procedimentoEscolhido, pacienteDermato);
                                                                         boolean concluido = medicoDermato.adicionarConsulta(consulta);
                                                                         if (concluido){
-                                                                            medicoDermato.removerDatasDisponiveis(LocalDateTime.of(ano, mes, dia, hora, minuto));
+                                                                            medicoDermato.removerDatasDisponiveis(dataEscolhida);
                                                                             System.out.println(consulta);
                                                                             System.out.println("Consulta agendada com sucesso!");
                                                                         } else {
