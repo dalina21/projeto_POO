@@ -53,6 +53,7 @@ public class Clinica implements IFinanceiro, ISistema {
         int canceladas = 0;
         double valorDasConsultas = 0;
         double valorProcedimentos = 0;
+        double valorDosDescontos = 0;
 
         for (int i = 0; i < this.medicosDermatologistasCadastrados.length; i++){
             if (this.medicosDermatologistasCadastrados[i] != null && this.medicosDermatologistasCadastrados[i].equals(medico)){
@@ -62,7 +63,8 @@ public class Clinica implements IFinanceiro, ISistema {
                         if(this.medicosDermatologistasCadastrados[i].consultas[j].statusDaConsulta.equals(EnumStatusConsulta.REALIZADA)){
                             numeroDeConsultas += 1;
                             valorProcedimentos += this.medicosDermatologistasCadastrados[i].consultas[j].procedimento.valor;
-                            valorDasConsultas += this.medicosDermatologistasCadastrados[i].consultas[j].valorDaConsulta - valorProcedimentos;
+                            valorDasConsultas += this.medicosDermatologistasCadastrados[i].consultas[j].medicoResponsavel.valorConsulta;
+                            valorDosDescontos += (this.medicosDermatologistasCadastrados[i].consultas[j].procedimento.valor + this.medicosDermatologistasCadastrados[i].consultas[j].medicoResponsavel.valorConsulta) - this.medicosDermatologistasCadastrados[i].consultas[j].valorDaConsulta;
 
                         } if (this.medicosDermatologistasCadastrados[i].consultas[j].statusDaConsulta.equals(EnumStatusConsulta.CANCELADA)){
                             canceladas += 1;
@@ -72,13 +74,15 @@ public class Clinica implements IFinanceiro, ISistema {
             }
         }
 
-        double valorTotal = valorDasConsultas + valorProcedimentos;
+        double valorTotal = (valorDasConsultas + valorProcedimentos) - valorDosDescontos;
+
         System.out.printf("\n\t\tRELATÓRIO DO DIA\n\n" +
                 "=> Número de consultas realizadas: %d\n" +
                 "=> Número de consultas canceladas: %d\n" +
-                "=> Valor total das consultas: R$%.2f\n" +
-                "=> Valor total dos procedimentos: R$%.2f\n" +
-                "=> Valor total (Procedimentos e Consultas): R$%.2f\n", numeroDeConsultas, canceladas, valorDasConsultas, valorProcedimentos, valorTotal);
+                "\n=> Valor total das consultas (Não considera os descontos): R$%.2f\n" +
+                "=> Valor total dos procedimentos (Não considera os descontos): R$%.2f\n" +
+                "=> Descontos do Cartão VIP: R$%.2f\n" +
+                "\n=> Valor total (Procedimentos + Consultas - Descontos): R$%.2f\n", numeroDeConsultas, canceladas, valorDasConsultas, valorProcedimentos, valorDosDescontos, valorTotal);
 
     }
 
@@ -88,6 +92,7 @@ public class Clinica implements IFinanceiro, ISistema {
         int canceladas = 0;
         double valorDasConsultas = 0;
         double valorProcedimentos = 0;
+        double valorDosDescontos = 0;
 
         for (int i = 0; i < this.medicosGinecologistasCadastrados.length; i++){
             if (this.medicosGinecologistasCadastrados[i] != null && this.medicosGinecologistasCadastrados[i].equals(medico)){
@@ -97,7 +102,8 @@ public class Clinica implements IFinanceiro, ISistema {
                         if(this.medicosGinecologistasCadastrados[i].consultas[j].statusDaConsulta.equals(EnumStatusConsulta.REALIZADA)){
                             numeroDeConsultas += 1;
                             valorProcedimentos += this.medicosGinecologistasCadastrados[i].consultas[j].procedimento.valor;
-                            valorDasConsultas += this.medicosGinecologistasCadastrados[i].consultas[j].valorDaConsulta - valorProcedimentos;
+                            valorDasConsultas += this.medicosGinecologistasCadastrados[i].consultas[j].medicoResponsavel.valorConsulta;
+                            valorDosDescontos += (this.medicosGinecologistasCadastrados[i].consultas[j].procedimento.valor + this.medicosGinecologistasCadastrados[i].consultas[j].medicoResponsavel.valorConsulta) - this.medicosGinecologistasCadastrados[i].consultas[j].valorDaConsulta;
 
                         } if (this.medicosGinecologistasCadastrados[i].consultas[j].statusDaConsulta.equals(EnumStatusConsulta.CANCELADA)){
                             canceladas += 1;
@@ -107,13 +113,15 @@ public class Clinica implements IFinanceiro, ISistema {
             }
         }
 
-        double valorTotal = valorDasConsultas + valorProcedimentos;
-        System.out.printf("\n\tRELATÓRIO DO DIA\n\n" +
+        double valorTotal = valorDasConsultas + valorProcedimentos - valorDosDescontos;
+        System.out.printf("\n\t\tRELATÓRIO DO DIA\n\n" +
                 "=> Número de consultas realizadas: %d\n" +
                 "=> Número de consultas canceladas: %d\n" +
-                "=> Valor total das consultas: %.2f\n" +
-                "=> Valor total dos procedimentos: %.2f\n" +
-                "=> Valor total (Procedimentos e Consultas): R$%.2f\n", numeroDeConsultas, canceladas, valorDasConsultas, valorProcedimentos, valorTotal);
+                "\n=> Valor total das consultas (Não considera os descontos): R$%.2f\n" +
+                "=> Valor total dos procedimentos (Não considera os descontos): R$%.2f\n" +
+                "=> Descontos do Cartão VIP: R$%.2f\n" +
+                "\n=> Valor total (Procedimentos + Consultas - Descontos): R$%.2f\n", numeroDeConsultas, canceladas, valorDasConsultas, valorProcedimentos, valorDosDescontos, valorTotal);
+
     }
 
     @Override

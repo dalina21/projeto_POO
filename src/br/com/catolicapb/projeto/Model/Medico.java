@@ -12,7 +12,7 @@ abstract public class Medico extends Pessoa {
     public LocalDateTime[] datasDisponiveis;
     public double valorAluguelDaSala;
     public int limiteDeConsultasDiarias;
-    public double valorConsulta;
+    public double valorConsulta; //valor cobrado por consulta
     public String senha;
 
     public Medico(

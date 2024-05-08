@@ -44,7 +44,7 @@ public class ConsultaGinecologica extends Consulta{
                 "\nProcedimento a ser realizado: " + this.procedimento +
                 "\nMédico(a) responsável: " + this.medicoResponsavel.nome +
                 "\nCrm do médico(a): " + this.medicoResponsavel.crm +
-                "\n\n=> Valor da consulta: " + calcularValorDaConsulta() +
+                "\n\n=> Valor da consulta: " + this.valorDaConsulta +
                 "\nStatus da consulta: " + this.statusDaConsulta;
     }
 

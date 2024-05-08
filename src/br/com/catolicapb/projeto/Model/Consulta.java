@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 abstract public class Consulta {
 
     public LocalDateTime dataEHoraConsulta;
-    public double valorDaConsulta;
+    public double valorDaConsulta; // Consulta + procedimento - desconto
     public EnumStatusConsulta statusDaConsulta;
 
     public Consulta(
